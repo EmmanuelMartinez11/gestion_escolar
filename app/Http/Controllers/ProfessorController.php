@@ -76,5 +76,4 @@ class ProfessorController extends Controller
     
         return $pdf->download('reporte_asistencia_profesores.pdf');
     }
-    
 }

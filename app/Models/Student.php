@@ -15,7 +15,7 @@ class Student extends Model
     public function courses()
     {
         return $this->belongsToMany(Course::class, 'course_student')
-                    ->withPivot('commission_id') // Incluye commission_id del pivote
+                    ->withPivot('commission_id')
                     ->withTimestamps();
     }
     

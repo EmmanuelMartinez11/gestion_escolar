@@ -43,8 +43,9 @@
                 @endforeach
             </tbody>
         </table>
-
-        {{ $subjects->links() }}
+        <div class="d-flex justify-content-center">
+            {{ $subjects->links('pagination::bootstrap-4') }}
+        </div>
     @else
         <p>No hay materias registradas.</p>
     @endif

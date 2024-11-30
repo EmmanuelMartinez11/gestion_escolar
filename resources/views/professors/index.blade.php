@@ -44,7 +44,9 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $professors->links() }}
+        <div class="d-flex justify-content-center">
+            {{ $professors->links('pagination::bootstrap-4') }}
+        </div>
     @else
         <p>No hay profesores registrados.</p>
     @endif

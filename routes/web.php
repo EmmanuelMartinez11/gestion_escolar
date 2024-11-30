@@ -41,3 +41,7 @@ Route::resource('commissions', CommissionController::class);
 
 // Rutas para Course_Student (inscripciones)
 Route::resource('course_students', CourseStudentController::class);
+
+
+Route::get('/courses/subject/{subjectId}', [CourseStudentController::class, 'getCoursesBySubject']);
+Route::get('/commissions/course/{courseId}', [CourseStudentController::class, 'getCommissionsByCourse']);

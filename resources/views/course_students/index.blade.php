@@ -28,7 +28,7 @@
                     <td>{{ $enrollment->id }}</td>
                     <td>{{ $enrollment->student->name }}</td>
                     <td>{{ $enrollment->course->name }}</td>
-                    <td>{{ $enrollment->commission->room }} ({{ $enrollment->commission->schedule }})</td>
+                    <td>{{ $enrollment->commission->id }}</td>
                     <td>
                         <a href="{{ route('course_students.edit', $enrollment) }}" class="btn btn-warning btn-sm">Editar</a>
                         <form action="{{ route('course_students.destroy', $enrollment) }}" method="POST" style="display:inline;">
@@ -42,5 +42,8 @@
         </tbody>
     </table>
 
-    {{ $enrollments->links() }}
+    <!-- Paginación de Bootstrap -->
+    <div class="d-flex justify-content-center">
+        {{ $enrollments->links('pagination::bootstrap-4') }}
+    </div>
 @endsection

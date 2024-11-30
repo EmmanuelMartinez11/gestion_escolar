@@ -26,19 +26,35 @@
         </thead>
         <tbody>
             @foreach ($students as $student)
-                @foreach ($student->courses as $course)
-                    @foreach ($course->commissions as $commission)
-                        <tr>
-                            <td>{{ $student->name }}</td>
-                            <td>{{ $course->name }}</td>
-                            <td>{{ $commission->id }}</td>
-                            <td>{{ $commission->room }}</td>
-                            <td>{{ $commission->schedule }}</td>
-                        </tr>
+                @if ($student->courses->isEmpty())
+                    <tr>
+                        <td>{{ $student->name }}</td>
+                        <td colspan="4">Sin inscripción</td>
+                    </tr>
+                @else
+                    @foreach ($student->courses as $course)
+                        @if ($course->commissions->isEmpty())
+                            <tr>
+                                <td>{{ $student->name }}</td>
+                                <td>{{ $course->name }}</td>
+                                <td colspan="3">Sin comisión asignada</td>
+                            </tr>
+                        @else
+                            @foreach ($course->commissions as $commission)
+                                <tr>
+                                    <td>{{ $student->name }}</td>
+                                    <td>{{ $course->name }}</td>
+                                    <td>{{ $commission->id }}</td>
+                                    <td>{{ $commission->room }}</td>
+                                    <td>{{ $commission->schedule }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
                     @endforeach
-                @endforeach
+                @endif
             @endforeach
         </tbody>
+
     </table>
 </body>
 </html>

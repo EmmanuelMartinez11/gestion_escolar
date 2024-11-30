@@ -58,7 +58,10 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $commissions->links() }} <!-- Aquí se agrega la paginación -->
+        
+        <div class="d-flex justify-content-center">
+            {{ $commissions->links('pagination::bootstrap-4') }}
+        </div>
     @else
         <p>No hay comisiones registradas.</p>
     @endif

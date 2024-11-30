@@ -51,7 +51,9 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $courses->links() }} <!-- Aquí se agrega la paginación -->
+        <div class="d-flex justify-content-center">
+            {{ $courses->links('pagination::bootstrap-4') }}
+        </div>
     @else
         <p>No hay cursos registrados.</p>
     @endif
