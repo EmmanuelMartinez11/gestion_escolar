@@ -9,9 +9,8 @@ use App\Http\Controllers\CommissionController;
 use App\Http\Controllers\CourseStudentController;
 
 
-Route::get('/', function () {
-    return view('dashboard'); // Dashboard principal
-});
+Route::get('/', [StudentController::class, 'index']);  // Cambiar aquí
+
 
 // Rutas específicas para el reporte de profesores
 Route::get('professors/report', [ProfessorController::class, 'generateReport'])->name('professors.report');
